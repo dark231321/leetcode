@@ -1,5 +1,7 @@
 package org.example.leetcode.utils;
 
+import java.util.Objects;
+
 public class Utils {
 
     public static int randomInt(int n) {
@@ -30,5 +32,26 @@ public class Utils {
         System.out.println("---------------");
     }
 
+    public static Integer a = 1;
 
+    public static LinkedListNode randomLinkedListNode(int size, int min, int max) {
+        LinkedListNode first = new LinkedListNode(randomIntInRange(min, max));
+        LinkedListNode last = first;
+        for (int i = 1; i < size; i++) {
+            LinkedListNode tmp = new LinkedListNode(null, last, randomIntInRange(min, max));
+            last.setNext(tmp);
+            last = tmp;
+        }
+
+        return first;
+    }
+
+    public static void print(LinkedListNode linkedListNode) {
+        LinkedListNode tmp = linkedListNode;
+        while (Objects.nonNull(tmp)) {
+            System.out.print(tmp.getValue() + " ");
+            tmp = tmp.getNext();
+        }
+        System.out.println();
+    }
 }
