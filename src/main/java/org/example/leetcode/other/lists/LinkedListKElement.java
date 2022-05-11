@@ -1,6 +1,6 @@
 package org.example.leetcode.other.lists;
 
-import org.example.leetcode.utils.LinkedListNode;
+import org.example.leetcode.utils.ListNode;
 import org.example.leetcode.utils.Utils;
 
 import java.util.Objects;
@@ -9,12 +9,12 @@ public class LinkedListKElement {
 
     private static Integer count = 0;
 
-    public static LinkedListNode recursiveSearch(LinkedListNode node, Integer indexTail) {
+    public static ListNode recursiveSearch(ListNode node, Integer indexTail) {
         if (Objects.isNull(node)) {
             return null;
         }
 
-        LinkedListNode tmp = recursiveSearch(node.getNext(), indexTail);
+        ListNode tmp = recursiveSearch(node.getNext(), indexTail);
         count += 1;
         if (Objects.equals(indexTail, count)) {
             return node;
@@ -22,8 +22,8 @@ public class LinkedListKElement {
         return tmp;
     }
 
-    public static LinkedListNode search(LinkedListNode node, int indexTail) {
-        LinkedListNode tmp = node;
+    public static ListNode search(ListNode node, int indexTail) {
+        ListNode tmp = node;
         node = shiftPointer(node, indexTail - 1);
         if (Objects.isNull(node)) return null;
         while (Objects.nonNull(node.getNext())) {
@@ -33,7 +33,7 @@ public class LinkedListKElement {
         return tmp;
     }
 
-    private static LinkedListNode shiftPointer(LinkedListNode node, int size) {
+    private static ListNode shiftPointer(ListNode node, int size) {
         while (Objects.nonNull(node) && size > 0) {
             node = node.getNext();
             size --;

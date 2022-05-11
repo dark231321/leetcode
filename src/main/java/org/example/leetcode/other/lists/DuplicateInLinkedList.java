@@ -1,6 +1,6 @@
 package org.example.leetcode.other.lists;
 
-import org.example.leetcode.utils.LinkedListNode;
+import org.example.leetcode.utils.ListNode;
 import org.example.leetcode.utils.Utils;
 
 import java.util.HashSet;
@@ -27,14 +27,14 @@ public class DuplicateInLinkedList {
         return numbers;
     }
 
-    public static LinkedListNode deleteDuplicateWithoutBuffer(LinkedListNode numbers) {
-        LinkedListNode first = numbers;
+    public static ListNode deleteDuplicateWithoutBuffer(ListNode numbers) {
+        ListNode first = numbers;
         while (Objects.nonNull(numbers.getNext())) {
             int curVal = numbers.getValue();
-            LinkedListNode next = numbers.getNext();
+            ListNode next = numbers.getNext();
             while (Objects.nonNull(next.getNext())) {
                 if (curVal == next.getValue()) {
-                    LinkedListNode tmp = next.getNext();
+                    ListNode tmp = next.getNext();
                     tmp.setPrevious(next.getPrevious());
                     next.getPrevious().setNext(tmp);
                 }
@@ -48,8 +48,8 @@ public class DuplicateInLinkedList {
 
     public static void main(String[] args) {
         var i = new LinkedList<>(List.of(1, 2, 5, 4, 5));
-        LinkedListNode linkedListNode = Utils.randomLinkedListNode(10, 0, 5);
-        Utils.print(linkedListNode);
-        Utils.print(deleteDuplicateWithoutBuffer(linkedListNode));
+        ListNode listNode = Utils.randomLinkedListNode(10, 0, 5);
+        Utils.print(listNode);
+        Utils.print(deleteDuplicateWithoutBuffer(listNode));
     }
 }

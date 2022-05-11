@@ -34,11 +34,11 @@ public class Utils {
 
     public static Integer a = 1;
 
-    public static LinkedListNode randomLinkedListNode(int size, int min, int max) {
-        LinkedListNode first = new LinkedListNode(randomIntInRange(min, max));
-        LinkedListNode last = first;
+    public static ListNode randomLinkedListNode(int size, int min, int max) {
+        ListNode first = new ListNode(randomIntInRange(min, max));
+        ListNode last = first;
         for (int i = 1; i < size; i++) {
-            LinkedListNode tmp = new LinkedListNode(null, last, randomIntInRange(min, max));
+            ListNode tmp = new ListNode(null, last, randomIntInRange(min, max));
             last.setNext(tmp);
             last = tmp;
         }
@@ -46,8 +46,8 @@ public class Utils {
         return first;
     }
 
-    public static void print(LinkedListNode linkedListNode) {
-        LinkedListNode tmp = linkedListNode;
+    public static void print(ListNode listNode) {
+        ListNode tmp = listNode;
         while (Objects.nonNull(tmp)) {
             System.out.print(tmp.getValue() + " ");
             tmp = tmp.getNext();
